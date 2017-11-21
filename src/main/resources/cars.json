@@ -1,0 +1,49 @@
+{
+
+	"caractéristiques":[{
+	"ID":"CR-1",
+	"modèle":"Ferrari",
+	"prix_jour": 500,
+        "boite_vitesse":"manuel",
+        "nb_places": 2,
+	"climatisation":true,
+	"disponible":true
+	},
+	
+	{
+	"ID":"CR-2",
+	"modèle":"Mini cooper",
+	"prix_jour": 200,
+        	"boite_vitesse":"manuel",
+        	"nb_places": 5,
+	"climatisation":true,
+	"disponible":true
+	},
+	{
+	"ID":"CR-3",
+	"modèle":"Toyota",
+	"prix_jour": 160,
+        "boite_vitesse":"manuel",
+        "nb_places": 5,
+	"climatisation":true,
+	"disponible":true
+	},
+	{
+	"ID":"CR-4",
+	"modèle":"Audi",
+	"prix_jour": 190,
+        "boite_vitesse":"automatique",
+        "nb_places": 4,
+	"climatisation":true,
+	"disponible":true
+	},
+	{
+	"ID":"CR-5",
+	"modèle":"Renault",
+	"prix_jour": null,
+        "boite_vitesse":"automatique",
+        "nb_places": 5,
+	"climatisation":false,
+	"disponible":true
+	}]
+}

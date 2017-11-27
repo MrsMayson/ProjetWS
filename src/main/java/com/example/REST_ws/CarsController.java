@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;//généré par eclipse:debug
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //couche web = appels fonctions Rentservices
@@ -35,12 +35,26 @@ public class CarsController{
 		return rentservice.viewCar(id); //afficher une voiture à partir de son urn
 	}
 	
+
+	@RequestMapping(value = "/cars/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.OK)
+	public void getBack(@PathVariable("id") int id){ 
+		rentservice.getBackACar(id);	}
+	
+	
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public void rentCar(@PathVariable("id") int id){
-		rentservice.rentCar(id);
-		
+	public void rent(@PathVariable("id") int id){ 
+		rentservice.rentACar(id);
 	}
+	
+	
+	/*@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)         
+	@ResponseStatus(HttpStatus.OK)
+	public void rentAndGetBack(@PathVariable("id") int id,
+	@RequestParam(value="rent", required = true)boolean rent){   
+		rentservice.rentAndGetBack(id, rent);
+	}*/	
 }
 
 

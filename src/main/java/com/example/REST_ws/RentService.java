@@ -45,33 +45,31 @@ public class RentService{
 		return car;
 	}
 	
-/*	
-	//Côté client ?, requêtes ?
-	public void rentCar(int id) {	
-		
-		availableCars();// récupération d'une variable qui indique si
-	}
-	
-*/
-	
 	public void rentACar(int id) {
+		
 		Car c;
+		
 		for(int i=0;i<list.size();i++){
-			if((i+1)==id) {
-				c=list.get(i);
+			c=list.get(i);
+			if((i+1)==id && (c.isDisp()==true)) {
 				c.setDisp(false);
-			    //c.list.get(i)= c;
 				list.set(i, c);
-				//list.get(i).setDisp(false);
 			}
+			
+			//else si isDisp == false gérer une exception car la voiture est déjà louée
 		}	
 	}
 		
 	public void getBackACar(int id){
 		
+		Car c;
+		
 		for(int i=0;i<list.size();i++){
+			
 			if((i+1)==id) {
-				list.get(id).setDisp(true);
+				c=list.get(i);
+				c.setDisp(true);
+				list.set(i, c);
 			}
 		}	
 	}

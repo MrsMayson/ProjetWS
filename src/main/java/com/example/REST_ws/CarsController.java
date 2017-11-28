@@ -1,9 +1,6 @@
 package com.example.REST_ws;
-//package library.controller;
 
-//import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//couche web = appels fonctions Rentservices
+/*couche web = appels fonctions Rentservices */
 
 @RestController
 
@@ -39,25 +36,28 @@ public class CarsController{
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.OK)
 	public void getBack(@PathVariable("id") int id){ 
-		rentservice.getBackACar(id);	}
+		rentservice.getBackACar(id);	
+		}
 	
-	/*             FONCTIONNE 
+	//           FONCTIONNE 
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public void rent(@PathVariable("id") int id){ 
+	public void rent(@PathVariable("id") int id) { 
 		rentservice.rentACar(id);
-	}*/
+	}
 	
-	/*             FONCTIONNE	                                    */
+	/*             FONCTIONNE	                                    
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)         
 	@ResponseStatus(HttpStatus.OK)
 	public void rentAndGetBack(@PathVariable("id") int id,
 	@RequestParam(value="rent", required = true)boolean rent){ 
+		rentservice.rentAndGetBack(id, rent);
+		
 		
 		if(rent==true) System.out.println("Louer");
 		if(rent==false) System.out.println("Rendre");
-		rentservice.rentAndGetBack(id, rent);
-	}
+		
+	}*/
 	
 
 }

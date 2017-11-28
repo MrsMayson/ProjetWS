@@ -1,12 +1,13 @@
 package com.example.REST_ws;
 
-//package library.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
-//couche services: implémentation des méthodes liées 
+
+
+/*couche services: implémentation des méthodes liées  */
 
 @RestController
 
@@ -45,18 +46,24 @@ public class RentService{
 		return car;
 	}
 	
-	public void rentACar(int id) {
+	public void rentACar(int id){
 		
 		Car c;
 		
 		for(int i=0;i<list.size();i++){
 			c=list.get(i);
 			if((i+1)==id) {
-				c.setDisp(false);
-				list.set(i, c);
+				if (c.isDisp()==true) {
+					c.setDisp(false);
+					list.set(i, c);
+				}
+				else {//else si isDisp == false gérer une exception car la voiture est déjà louée
+					
+				}
 			}
-			//else si isDisp == false gérer une exception car la voiture est déjà louée
-		}	
+				
+			}	
+			
 	}
 		
 	public void getBackACar(int id){
@@ -67,8 +74,13 @@ public class RentService{
 			
 			if((i+1)==id) {
 				c=list.get(i);
-				c.setDisp(true);
-				list.set(i, c);
+				if (c.isDisp()==false) {
+					c.setDisp(true);
+					list.set(i, c);
+				}
+				else {//else si isDisp == false gérer une exception car la voiture est déjà louée
+					
+				}
 			}
 		}	
 	}
@@ -82,11 +94,11 @@ public class RentService{
 		
 		if(rent==true) { 
 			rentACar(id);//Si la voiture est dispo, alors on peut la louer
-			System.out.println("Louer");
+			//System.out.println("Louer");
 		}
 		else {
 			getBackACar(id);//Sinon, on rend la voiture
-			System.out.println("Rendre");
+			//System.out.println("Rendre");
 		}
 	}
 	

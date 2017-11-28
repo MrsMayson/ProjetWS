@@ -51,11 +51,10 @@ public class RentService{
 		
 		for(int i=0;i<list.size();i++){
 			c=list.get(i);
-			if((i+1)==id && (c.isDisp()==true)) {
+			if((i+1)==id) {
 				c.setDisp(false);
 				list.set(i, c);
 			}
-			
 			//else si isDisp == false gérer une exception car la voiture est déjà louée
 		}	
 	}
@@ -77,11 +76,17 @@ public class RentService{
 	
 	public void rentAndGetBack(int id, boolean rent) {
 		
-		if(rent==true) {
-			rentACar(id);
+		Car c= viewCar(id);//Séléctione parmi les voitures celle passée en paramètre dans la fonction
+		
+		rent= c.isDisp();
+		
+		if(rent==true) { 
+			rentACar(id);//Si la voiture est dispo, alors on peut la louer
+			System.out.println("Louer");
 		}
 		else {
-			getBackACar(id);
+			getBackACar(id);//Sinon, on rend la voiture
+			System.out.println("Rendre");
 		}
 	}
 	

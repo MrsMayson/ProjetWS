@@ -41,20 +41,25 @@ public class CarsController{
 	public void getBack(@PathVariable("id") int id){ 
 		rentservice.getBackACar(id);	}
 	
-	
+	/*             FONCTIONNE 
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
 	public void rent(@PathVariable("id") int id){ 
 		rentservice.rentACar(id);
-	}
+	}*/
 	
-	
-	/*@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)         
+	/*             FONCTIONNE	                                    */
+	@RequestMapping(value = "/cars/{id}", method = RequestMethod.PUT)         
 	@ResponseStatus(HttpStatus.OK)
 	public void rentAndGetBack(@PathVariable("id") int id,
-	@RequestParam(value="rent", required = true)boolean rent){   
+	@RequestParam(value="rent", required = true)boolean rent){ 
+		
+		if(rent==true) System.out.println("Louer");
+		if(rent==false) System.out.println("Rendre");
 		rentservice.rentAndGetBack(id, rent);
-	}*/	
+	}
+	
+
 }
 
 

@@ -22,7 +22,7 @@ public class CarsController{
 	@ResponseBody
 	public List<Car>listOfCars(){
 		
-        return rentservice.listOfCar();
+        return rentservice.availableCars();
 	}
 	
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)

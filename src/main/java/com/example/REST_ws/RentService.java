@@ -28,7 +28,7 @@ public class RentService{
 	
     //Affiche la liste de toutes les voitures
 	public List<Car>listOfCar(){
-		
+		 
 		return list;
 	}
 	
